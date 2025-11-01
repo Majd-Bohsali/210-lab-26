@@ -33,6 +33,7 @@ int main() {
                                                                // first level is run times for specific run
                                                                // second level if sum of all previous and current runs
     int avgResults[NUM_OPERATIONS][NUM_DATASETS];
+    string rowsHeader[] = {"Read", "Sort", "Insert", "Delete"}; 
     for(int i = 0; i < NUM_RUNS; i++) { 
         // creates datasets
         vector<string> codesVector;
@@ -65,17 +66,16 @@ int main() {
                 results[i][j][1] += results[i][j][0]; 
             }
         }
-
-        // print results to console
-        cout << endl << "Iteration: " << i + 1 << endl; 
-        cout << right << setw(W) << "Operation" << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
-        cout << right << setw(W) << "Read" << setw(W) << results[0][0][i] << setw(W) <<  results[0][1][i]  << setw(W) <<  results[0][2][i]  << endl;
-        cout << right << setw(W) << "Sort" << setw(W) << results[1][0][i] << setw(W) << results[1][1][i] << setw(W) << results[1][2][i] << endl;
-        cout << right << setw(W) << "Insert" << setw(W) << results[2][0][i] << setw(W) << results[2][1][i] << setw(W) << results[2][2][i] << endl;
-        cout << right << setw(W) << "Delete" << setw(W) << results[3][0][i] << setw(W) << results[3][1][i] << setw(W) << results[3][2][i] << endl;
     }
-
-    cout << "Number of simulations: " << NUM_RUNS; 
+    cout << "Number of simulations: " << NUM_RUNS << endl; 
+    cout << right << setw(W) << "Operation" << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
+    for(int i = 0; i < sizeof(rowsHeader); i++) { 
+        cout << right << setw(W) << rowsHeader[i]; // outputs the operation data being printed
+        for(int j = 0; j < NUM_DATASETS; j++) { 
+            cout << setw(W) << (int)results[i][j][1]/NUM_RUNS; // takes and outputs the average of the sum of the operation 
+        }
+        cout << endl;
+    }
     return 0;
 }
  
