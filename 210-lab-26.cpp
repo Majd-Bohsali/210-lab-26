@@ -73,9 +73,9 @@ int main() {
             }
             avgResults[i][j] = sum/NUM_RUNS; 
         }
-    }
+    }    
 
-     cout << "Number of simulations: " << NUM_RUNS; 
+    cout << "Number of simulations: " << NUM_RUNS; 
     return 0;
 }
  
