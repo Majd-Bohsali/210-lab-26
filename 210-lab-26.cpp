@@ -29,6 +29,7 @@ const int NUM_DATASETS = 3;
 const int NUM_RUNS = 15; 
 int main() {    
     double results[NUM_OPERATIONS][NUM_DATASETS][NUM_RUNS]; // creates 3D array to hold data
+    int avgResults[NUM_OPERATIONS][NUM_DATASETS];
     for(int i = 0; i < NUM_RUNS; i++) { 
         // creates datasets
         vector<string> codesVector;
@@ -63,6 +64,18 @@ int main() {
         cout << right << setw(W) << "Insert" << setw(W) << results[2][0][i] << setw(W) << results[2][1][i] << setw(W) << results[2][2][i] << endl;
         cout << right << setw(W) << "Delete" << setw(W) << results[3][0][i] << setw(W) << results[3][1][i] << setw(W) << results[3][2][i] << endl;
     }
+   
+    for(int i = 0; i < NUM_OPERATIONS; i++) { 
+        for(int j = 0; j < NUM_DATASETS; j++) { 
+            double sum = 0;
+            for(int k = 0; k < NUM_RUNS; k++) { 
+                sum += results[i][j][k];
+            }
+            avgResults[i][j] = sum/NUM_RUNS; 
+        }
+    }
+
+     cout << "Number of simulations: " << NUM_RUNS; 
     return 0;
 }
  
