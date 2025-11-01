@@ -38,7 +38,7 @@ int main() {
         vector<string> codesVector;
         list<string> codesList;
         set<string> codesSet;
-        
+            
         // Calculates time for reading
         results[0][0][0] = timeVectorRead(codesVector);
         results[0][1][0] = timeListRead(codesList);
