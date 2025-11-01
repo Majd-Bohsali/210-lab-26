@@ -69,10 +69,10 @@ int main() {
     }
     cout << "Number of simulations: " << NUM_RUNS << endl; 
     cout << right << setw(W) << "Operation" << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
-    for(int i = 0; i < sizeof(rowsHeader); i++) { 
+    for(int i = 0; i < NUM_OPERATIONS; i++) { 
         cout << right << setw(W) << rowsHeader[i]; // outputs the operation data being printed
         for(int j = 0; j < NUM_DATASETS; j++) { 
-            cout << setw(W) << (int)results[i][j][1]/NUM_RUNS; // takes and outputs the average of the sum of the operation 
+            cout << setw(W) << (int)(results[i][j][1]/NUM_RUNS); // takes and outputs the average of the sum of the operation 
         }
         cout << endl;
     }
