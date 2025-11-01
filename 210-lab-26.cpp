@@ -28,44 +28,40 @@ const int NUM_OPERATIONS = 4;
 const int NUM_DATASETS = 3; 
 const int NUM_RUNS = 15; 
 int main() {    
-    double results[NUM_OPERATIONS][NUM_DATASETS][NUM_RUNS]; 
-    // collects file data with vector
-    vector<string> codesVector;
-    double vectorReadTime = timeVectorRead(codesVector);
-    // collects file data with list
-    list<string> codesList;
-    double listReadTime = timeListRead(codesList);
-    // collects file data with set
-    set<string> codesSet;
-    double setReadTime = timeSetRead(codesSet);
+    double results[NUM_OPERATIONS][NUM_DATASETS][NUM_RUNS]; // creates 3D array to hold data
+    for(int i = 0; i < NUM_RUNS; i++) { 
+        // creates datasets
+        vector<string> codesVector;
+        list<string> codesList;
+        set<string> codesSet;
+        
+        // Calculates time for reading
+        results[0][0][i] = timeVectorRead(codesVector);
+        results[0][1][i] = timeListRead(codesList);
+        results[0][2][i] = timeSetRead(codesSet);
 
-    // sorts vector
-    double vectorSortTime = timeVectorSort(codesVector);
-    // sorts list
-    double listSortTime = timeListSort(codesList);
-    // sort set
-    double setSortTime = -1; // set is already sorted
+        // Calculates time for sorting
+        results[1][0][i] = timeVectorSort(codesVector);
+        results[1][1][i] = timeListSort(codesList);
+        results[1][2][i] =  -1; // set is already sorted
 
-    // insert to vector
-    double vectorInsertTime = timeVectorInsert(codesVector);
-    // insert to list
-    double listInsertTime = timeListInsert(codesList);
-    // insert to set
-    double setInsertTime = timeSetInsert(codesSet);
+        // Calculates time for inserting
+        results[2][0][i] = timeVectorInsert(codesVector);
+        results[2][1][i] = timeListInsert(codesList);
+        results[2][2][i] = timeSetInsert(codesSet);
 
-    // delete middle element from vector
-    double vectorDeleteTime = timeVectorDelete(codesVector);
-    // delete middle element from list
-    double listDeleteTime = timeListDelete(codesList);
-    // delete middle element from set
-    double setDeleteTime = timeSetDelete(codesSet);
+        // Calculates time for deleting
+        results[3][0][i] = timeVectorDelete(codesVector);
+        results[3][1][i] = timeListDelete(codesList);
+        results[3][2][i] = timeSetDelete(codesSet);
 
-    // print results to console
-    cout << right << setw(W) << "Operation" << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
-    cout << right << setw(W) << "Read" << setw(W) << vectorReadTime << setw(W) << listReadTime << setw(W) << setReadTime << endl;
-    cout << right << setw(W) << "Sort" << setw(W) << vectorSortTime << setw(W) << listSortTime << setw(W) << setSortTime << endl;
-    cout << right << setw(W) << "Insert" << setw(W) << vectorInsertTime << setw(W) << listInsertTime << setw(W) << setInsertTime << endl;
-    cout << right << setw(W) << "Delete" << setw(W) << vectorDeleteTime << setw(W) << listDeleteTime << setw(W) << setDeleteTime << endl;
+        // print results to console
+        cout << right << setw(W) << "Operation" << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
+        cout << right << setw(W) << "Read" << setw(W) << vectorReadTime << setw(W) << listReadTime << setw(W) << setReadTime << endl;
+        cout << right << setw(W) << "Sort" << setw(W) << vectorSortTime << setw(W) << listSortTime << setw(W) << setSortTime << endl;
+        cout << right << setw(W) << "Insert" << setw(W) << vectorInsertTime << setw(W) << listInsertTime << setw(W) << setInsertTime << endl;
+        cout << right << setw(W) << "Delete" << setw(W) << vectorDeleteTime << setw(W) << listDeleteTime << setw(W) << setDeleteTime << endl;
+    }
     return 0;
 }
  
