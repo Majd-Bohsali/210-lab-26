@@ -56,11 +56,12 @@ int main() {
         results[3][2][i] = timeSetDelete(codesSet);
 
         // print results to console
+        cout << endl << "Iteration: " << i + 1 << endl; 
         cout << right << setw(W) << "Operation" << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
-        cout << right << setw(W) << "Read" << setw(W) << vectorReadTime << setw(W) << listReadTime << setw(W) << setReadTime << endl;
-        cout << right << setw(W) << "Sort" << setw(W) << vectorSortTime << setw(W) << listSortTime << setw(W) << setSortTime << endl;
-        cout << right << setw(W) << "Insert" << setw(W) << vectorInsertTime << setw(W) << listInsertTime << setw(W) << setInsertTime << endl;
-        cout << right << setw(W) << "Delete" << setw(W) << vectorDeleteTime << setw(W) << listDeleteTime << setw(W) << setDeleteTime << endl;
+        cout << right << setw(W) << "Read" << setw(W) << results[0][0][i] << setw(W) <<  results[0][1][i]  << setw(W) <<  results[0][2][i]  << endl;
+        cout << right << setw(W) << "Sort" << setw(W) << results[1][0][i] << setw(W) << results[1][1][i] << setw(W) << results[1][2][i] << endl;
+        cout << right << setw(W) << "Insert" << setw(W) << results[2][0][i] << setw(W) << results[2][1][i] << setw(W) << results[2][2][i] << endl;
+        cout << right << setw(W) << "Delete" << setw(W) << results[3][0][i] << setw(W) << results[3][1][i] << setw(W) << results[3][2][i] << endl;
     }
     return 0;
 }
