@@ -24,7 +24,11 @@ double timeVectorDelete(vector<string>& codesVector);
 double timeListDelete(list<string>& codesList);
 double timeSetDelete(set<string>& codesSet);
 const int W = 10;
+const int NUM_OPERATIONS = 4; 
+const int NUM_DATASETS = 3; 
+const int NUM_RUNS = 15; 
 int main() {    
+    double results[NUM_OPERATIONS][NUM_DATASETS][NUM_RUNS]; 
     // collects file data with vector
     vector<string> codesVector;
     double vectorReadTime = timeVectorRead(codesVector);
