@@ -5,6 +5,7 @@
         "iomanip": "cpp",
         "iostream": "cpp",
         "ios": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "chrono": "cpp"
     }
 }

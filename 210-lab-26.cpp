@@ -1,5 +1,5 @@
-// COMSC210 | lab 25 | Majd Bohsali
-// IDE useD: Visual Studio Code
+// COMSC-210 | lab 26 | Majd Bohsali
+// IDE used: Visual Studio Code
 #include <iostream>
 #include <fstream>
 #include <iomanip>
