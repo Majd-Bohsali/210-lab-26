@@ -29,10 +29,9 @@ const int NUM_DATASETS = 3;
 const int ARRAY_DEPTH = 2;  
 const int NUM_RUNS = 15; 
 int main() {    
-    double results[NUM_OPERATIONS][NUM_DATASETS][ARRAY_DEPTH]; // creates 3D array to hold data
+    double results[NUM_OPERATIONS][NUM_DATASETS][ARRAY_DEPTH] = {}; // creates 3D array to hold data
                                                                // first level is run times for specific run
                                                                // second level if sum of all previous and current runs
-    int avgResults[NUM_OPERATIONS][NUM_DATASETS];
     string rowsHeader[] = {"Read", "Sort", "Insert", "Delete"}; 
     for(int i = 0; i < NUM_RUNS; i++) { 
         // creates datasets
@@ -48,7 +47,7 @@ int main() {
         // Calculates time for sorting
         results[1][0][0] = timeVectorSort(codesVector);
         results[1][1][0] = timeListSort(codesList);
-        results[1][2][0] =  -1; // set is already sorted
+        results[1][2][0] =  0; // set is already sorted
 
         // Calculates time for inserting
         results[2][0][0] = timeVectorInsert(codesVector);
@@ -72,7 +71,7 @@ int main() {
     for(int i = 0; i < NUM_OPERATIONS; i++) { 
         cout << right << setw(W) << rowsHeader[i]; // outputs the operation data being printed
         for(int j = 0; j < NUM_DATASETS; j++) { 
-            cout << setw(W) << (int)(results[i][j][1]/NUM_RUNS); // takes and outputs the average of the sum of the operation 
+            cout << setw(W) << (int)(results[i][j][1]/NUM_RUNS); // takes and outputs the average of the sum of the operation  
         }
         cout << endl;
     }
@@ -162,7 +161,6 @@ double timeSetInsert(set<string>& codesSet) {
     auto duration = duration_cast<microseconds>(end - start).count();
     return duration;
 }
-
 
 double timeVectorDelete(vector<string>& codesVector) {
     auto start = high_resolution_clock::now();
